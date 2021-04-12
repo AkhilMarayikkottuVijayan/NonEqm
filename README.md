@@ -13,3 +13,5 @@ Things to do:
 3. Use UDS to model the transport of vib energy state in the system
 
 4. Develop a species flux function using UDFs
+
+5. Equilibrium constant formula to be added to "SourceReac.c" code to compute Keq
