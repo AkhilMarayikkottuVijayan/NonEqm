@@ -35,7 +35,7 @@ tau_cs	= pow(sig_s*C_s*n_s,-1);
  * time steps to get tau_vs */
 tau_vs 	= tau_sr+tau_cs;
 
-tempV	= C_UDMI(c,t,1)	;
+tempV	= C_UDMI(c,t,0)	;
 evsT	= theta*Ru/(MW*(pow(e,theta/temp)-1));
 evsTV   = theta*Ru/(MW*(pow(e,theta/tempV)-1));
 
