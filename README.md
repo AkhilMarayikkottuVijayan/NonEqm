@@ -6,12 +6,10 @@ A sample UDF for defining the vibrational energy state of N2 species as a functi
 
 Things to do:
 
-1. Make this routine genertic for all species by making the molecular weight MW and characteristic vib temperature for teh species as an input variable
+1. Make this routine genertic for all species by making the molecular weight MW and characteristic vib temperature for the species as an input variable
 
-2. Develop a vib energy source term SV to couple the vib mode with the total energy eqn
+2. Develop a species flux function using UDFs
 
-3. Use UDS to model the transport of vib energy state in the system
+3. Equilibrium constant formula to be added to "SourceReac.c" code to compute Keq
 
-4. Develop a species flux function using UDFs
-
-5. Equilibrium constant formula to be added to "SourceReac.c" code to compute Keq
+4. Validation case : (Hornung et al. 1972 )
