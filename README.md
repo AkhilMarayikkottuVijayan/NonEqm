@@ -13,3 +13,5 @@ Things to do:
 3. Equilibrium constant formula to be added to "SourceReac.c" code to compute Keq
 
 4. Validation case : (Hornung et al. 1972 )
+
+5. Modify the Journa;l file to integrate UDFs on the Batch jobs
