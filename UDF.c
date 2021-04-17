@@ -26,7 +26,7 @@ DEFINE_DIFFUSIVITY(mun2,c,t,i)
         real D_22 = 2.1427708E-7   ;
 
         temp  = C_T(c,t);
-	CsR   = D_22*temp*((A_22*log(temp)+B_22)*log(temp)+C_22);
+	CsR   = D_22*pow(temp,((A_22*log(temp)+B_22)*log(temp)+C_22));
         mu    = 2.6693E-6*3.14125*pow(MW*temp,0.5)/CsR ;
 	return mu;
 }
