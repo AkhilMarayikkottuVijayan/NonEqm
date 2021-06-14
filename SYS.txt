@@ -13,11 +13,11 @@ rc Cylinder_3_Reac.cas
 ;Non-equilibrium integration
 /define/user-defined/user-defined-memory 2
 /define/user-defined/user-defined-scalars 1 no no yes "mass flow rate"
-/define/user-defined/interpreted-functions "SourceReac.c" "cpp" 10000 no
-/define/user-defined/function-hooks/adjust "tv_comp" ""
-/define/user-defined/function-hooks/initialization "tv_init" ""
-/define/materials/change-create mixture-template mixture-template no no no no no no no no no yes defined-per-uds 0 user-defined "mun2" -1 no
-/define/boundary-conditions/fluid surface_body fluid no yes 0 0 0 0 0 0 0 1 no yes "e_vt_source" 1 no yes "vt_source" no no no 0. no 0. no no no yes yes
+;/define/user-defined/interpreted-functions "SourceReac.c" "cpp" 10000 no
+;/define/user-defined/function-hooks/adjust "tv_comp" ""
+;/define/user-defined/function-hooks/initialization "tv_init" ""
+;/define/materials/change-create mixture-template mixture-template no no no no no no no no no yes defined-per-uds 0 user-defined "mun2" -1 no
+;/define/boundary-conditions/fluid surface_body fluid no yes 0 0 0 0 0 0 0 1 no yes "e_vt_source" 1 no yes "vt_source" no no no 0. no 0. no no no yes yes
 
 
 ; run iterations
