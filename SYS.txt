@@ -31,7 +31,7 @@ rc NO_AMR.cas
 /define/user-defined/function-hooks/volume-reaction-rate "vol_reac_rate::libudf"
 
 ; run iterations
-it 30
+it 2000
 
 ; write data file with iteration number
 /file/cff-files? no

@@ -122,8 +122,8 @@ tau_vs  = tau_sr+tau_cs;
 
 tempV   = C_UDMI(c,t,0) ;
 evsT    = theta*Ru/(MW*(pow(e,theta/temp)-1));
-evsTV   = theta*Ru/(MW*(pow(e,theta/tempV)-1));
-
+//evsTV   = theta*Ru/(MW*(pow(e,theta/tempV)-1));
+evsTV   = C_UDSI(c,t,0);
 /*  Landau-Teller formula */
 vt      = density*Ys*(evsT-evsTV)/tau_vs;
 //printf ("VT relaxation source term : %f \n", vt);
