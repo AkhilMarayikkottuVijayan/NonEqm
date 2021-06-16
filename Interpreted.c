@@ -5,14 +5,22 @@ DEFINE_INIT(tv_init,d)
 {
         cell_t c        ;
         Thread  *t      ;
-
+        real temp,theta,Ru,e;
+        real MW ;
+ 
+        theta	= 3395.0;
+        e	= 2.718281;
+        Ru	= 8314.0;
+        MW      = 28.134; 
 /* Loop over all cell threads in the domain */
   thread_loop_c(t,d)
         {
            /* loop over all cells */
                 begin_c_loop_all(c,t)
                 {
-                C_UDMI(c,t,0) = C_T(c,t);
+                temp	      = 300.0;
+                C_UDMI(c,t,0) = temp;
+                C_UDSI(c,t,0) = theta*Ru/(MW*(pow(e,theta/temp)-1));
                 }
                 end_c_loop_all(c,t)
         }
@@ -47,7 +55,7 @@ DEFINE_ADJUST(tv_comp,d)
                 printf ("Y2             : %f \n", C_YI(c,t,2));
                 printf ("Y3             : %f \n", C_YI(c,t,3));
                 printf ("Y4             : %f \n", C_YI(c,t,4));*/
-                printf ("Vibrational temperature : %f \n", C_UDMI(c,t,0));
+                //printf ("Vibrational temperature : %f \n", C_UDMI(c,t,0));
                 }
                 end_c_loop (c,t)
         }
@@ -70,6 +78,7 @@ DEFINE_DIFFUSIVITY(mun2,c,t,i)
         temp  = C_T(c,t);
         CsR   = D_22*pow(temp,((A_22*log(temp)+B_22)*log(temp)+C_22));
         mu    = 2.6693E-6*3.14125*pow(MW*temp,0.5)/CsR ;
+        C_UDMI(c,t,2) = mu;
         return mu;
 }
 
@@ -116,16 +125,18 @@ evsT    = theta*Ru/(MW*(pow(e,theta/temp)-1));
 evsTV   = theta*Ru/(MW*(pow(e,theta/tempV)-1));
 
 /*  Landau-Teller formula */
-vt      = -1*density*Ys*(evsT-evsTV)/tau_vs;
+vt      = density*Ys*(evsT-evsTV)/tau_vs;
 //printf ("VT relaxation source term : %f \n", vt);
 C_UDMI(c,t,1) = vt;
+//printf ("LT - VT : %f \n ", vt);
+//vt =0.0;
 return vt;
 }
 
 DEFINE_SOURCE(e_vt_source,c,t,dS,eqn)
 {
 real    evt;
-evt     = 0.0;
+evt     = -1*C_UDMI(c,t,1);
 //printf ("evt : %f \n", evt);
 return evt;
 }

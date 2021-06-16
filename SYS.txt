@@ -3,19 +3,20 @@
 
 ; READ CASE FILE
 ;rc Cylinder_3_Reac.cas
-rc fluent_data_15000.cas
+;rc fluent_data_15000.cas
+rc NO_AMR.cas
 
 ; INITIALIZATION OF THE SOLVER
 /solve/initialize/initialize-flow y
 
 ; SOLUTION SETUP
 /solve/set/courant-number 0.5
-/solve/set/under-relaxation/uds 0.9
 
 ;NON-EQUILIBRIUM UDF INTEGRATION
 ;DEFINING UDSs AND UDMs
-/define/user-defined/user-defined-memory 2
+/define/user-defined/user-defined-memory 3
 /define/user-defined/user-defined-scalars 1 no no yes "mass flow rate"
+/solve/set/under-relaxation/uds-0 0.9
 
 ; INTERPRETED UDFs AND ITS INTEGRATION WITH FLUENT SR
 /define/user-defined/interpreted-functions "Interpreted.c" "cpp" 10000 no
