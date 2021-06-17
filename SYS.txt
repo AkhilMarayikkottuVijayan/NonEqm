@@ -11,10 +11,11 @@ rc NO_AMR.cas
 
 ; SOLUTION SETUP
 /solve/set/courant-number 0.5
+/solve/set/under-relaxation/p 0.5
 
 ;NON-EQUILIBRIUM UDF INTEGRATION
 ;DEFINING UDSs AND UDMs
-/define/user-defined/user-defined-memory 3
+/define/user-defined/user-defined-memory 4
 /define/user-defined/user-defined-scalars 1 no no yes "mass flow rate"
 /solve/set/under-relaxation/uds-0 0.9
 
@@ -31,7 +32,7 @@ rc NO_AMR.cas
 /define/user-defined/function-hooks/volume-reaction-rate "vol_reac_rate::libudf"
 
 ; run iterations
-it 2000
+it 1000
 
 ; write data file with iteration number
 /file/cff-files? no
