@@ -146,7 +146,7 @@ return evt;
 
 /* Reaction source terms into the energy equation
  * and the UDS equation for non-equilibrium */
-DEFINE_SOURCE(n2_dis_src1,c,t,dS,eqn)
+/*DEFINE_SOURCE(n2_dis_src1,c,t,dS,eqn)
 {
 real    A,Tcf,Tcb,b,Ed,Ru;
 real    kf,kb,e,temp,tempV;
@@ -154,7 +154,7 @@ real    Keq,Yn,Yn2,rho;
 real    rhoN2,rhoN,Mn2,Mn;
 real    wn2_1,theta,evs,src1;
 real	A1,A2,A3,A4,A5;
-real	Keq,ndens,NA,expon;
+real	ndens,NA,expon;
 
 e       = 2.718281828   ;
 Ru      = 8314.0        ;
@@ -209,5 +209,5 @@ evs     = theta*Ru/(Mn2*
 src1    = evs*wn2_1;
 
 return src1;
-}
+}*/
 
