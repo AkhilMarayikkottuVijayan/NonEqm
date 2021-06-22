@@ -8,7 +8,7 @@ rc NO_AMR.cas
 
 ; CREATION OF PROBES
 /surface/point-surface "stagprobe" -0.005371681 -0.00012093
-/solve/report-definitions/add/stagprobereport 1 n "stagprobe" "pressure" "surface-vertexavg"
+/solve/report-definitions/add/stagprobereport 1 n "stagprobe" "pressure,temperature,density" "surface-vertexavg"
 /solve/report-files/add/stagpointreport y y 1 "stagprobereport"
 
 ; INITIALIZATION OF THE SOLVER
