@@ -37,6 +37,12 @@ rc NO_AMR.cas
 /solve/report-definitions/edit/stagprobereport field density
 /solve/report-files/add/stagpointreport print? y file-name "stagnationoutput" report-def "stagprobereport"
 
+;CREATION OF FREESTREAM PROBE
+/surface/point-surface fsprobe -0.001388524 -0.005767789
+/solve/report-definitions/add/fsprobereport surface-vertexavg surface-name "fsprobe"
+/solve/report-definitions/edit/fsprobereport field density
+/solve/report-files/add/stagpointreport print? y file-name "fsoutput" report-def "fsprobereport"
+
 ; run iterations
 it 1000
 
