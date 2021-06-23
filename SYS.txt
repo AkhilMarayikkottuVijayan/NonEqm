@@ -6,11 +6,6 @@
 ;rc fluent_data_15000.cas
 rc NO_AMR.cas
 
-; CREATION OF PROBES
-/surface/point-surface stagprobe -0.005371681 -0.00012093
-/solve/report-definitions/add/stagprobereport surface-vertexavg ...
-/solve/report-files/add/stagpointreport y y 1 "stagprobereport" ...
-
 ; INITIALIZATION OF THE SOLVER
 /solve/initialize/initialize-flow y
 
@@ -35,6 +30,12 @@ rc NO_AMR.cas
 /define/user-defined/compiled-functions compile "libudf" yes "Reac.c" "" ""
 /define/user-defined/compiled-functions load libudf
 /define/user-defined/function-hooks/volume-reaction-rate "vol_reac_rate::libudf"
+
+; CREATION OF STAGNATION POINT PROBE
+/surface/point-surface stagprobe -0.005371681 -0.00012093
+/solve/report-definitions/add/stagprobereport surface-vertexavg surface-name "stagprobe"
+/solve/report-definitions/edit/stagprobereport field density
+/solve/report-files/add/stagpointreport print? y file-name "stagnationoutput" report-def "stagprobereport"
 
 ; run iterations
 it 1000
