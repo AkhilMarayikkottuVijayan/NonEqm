@@ -33,15 +33,15 @@ rc NO_AMR.cas
 
 ; CREATION OF STAGNATION POINT PROBE
 /surface/point-surface stagprobe -0.005371681 -0.00012093
-/solve/report-definitions/add/stagprobereport surface-vertexavg surface-name "stagprobe"
-/solve/report-definitions/edit/stagprobereport field density
-/solve/report-files/add/stagpointreport print? y file-name "stagnationoutput" report-def "stagprobereport"
+/solve/report-definitions/add/stagproberep surface-vertexavg surface-name "stagprobe"
+/solve/report-definitions/edit/stagproberep field density
+/solve/report-files/add/stagpointreport print? y file-name "stagoutput" report-def "stagproberep"
 
 ; CREATION OF FREESTREAM PROBE
 /surface/point-surface fsprobe -0.001388524 -0.005767789
-/solve/report-definitions/add/fsprobereport surface-vertexavg surface-name "fsprobe"
-/solve/report-definitions/edit/fsprobereport field density
-/solve/report-files/add/stagpointreport print? y file-name "fsoutput" report-def "fsprobereport"
+/solve/report-definitions/add/fsproberep surface-vertexavg surface-name "fsprobe"
+/solve/report-definitions/edit/fsproberep field density
+/solve/report-files/add/stagpointreport print? y file-name "fsoutput" report-def "fsproberep"
 
 ; run iterations
 it 1000
