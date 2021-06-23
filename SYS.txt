@@ -13,8 +13,8 @@ rc NO_AMR.cas
 /solve/set/courant-number 0.5
 /solve/set/under-relaxation/p 0.5
 
-;NON-EQUILIBRIUM UDF INTEGRATION
-;DEFINING UDSs AND UDMs
+; NON-EQUILIBRIUM UDF INTEGRATION
+; DEFINING UDSs AND UDMs
 /define/user-defined/user-defined-memory 4
 /define/user-defined/user-defined-scalars 1 no no yes "mass flow rate"
 /solve/set/under-relaxation/uds-0 0.9
@@ -26,7 +26,7 @@ rc NO_AMR.cas
 /define/materials/change-create mixture-template mixture-template no no no no no no no no no yes defined-per-uds 0 user-defined "mun2" -1 no
 /define/boundary-conditions/fluid surface_body fluid no yes 0 0 0 0 0 0 0 1 no yes "e_vt_source" 1 no yes "vt_source" no no no 0. no 0. no no no yes yes
 
-;COMPILABLE UDFs FOR REACTION MODIFICATION ~ PARK
+; COMPILABLE UDFs FOR REACTION MODIFICATION ~ PARK
 /define/user-defined/compiled-functions compile "libudf" yes "Reac.c" "" ""
 /define/user-defined/compiled-functions load libudf
 /define/user-defined/function-hooks/volume-reaction-rate "vol_reac_rate::libudf"
@@ -37,7 +37,7 @@ rc NO_AMR.cas
 /solve/report-definitions/edit/stagprobereport field density
 /solve/report-files/add/stagpointreport print? y file-name "stagnationoutput" report-def "stagprobereport"
 
-;CREATION OF FREESTREAM PROBE
+; CREATION OF FREESTREAM PROBE
 /surface/point-surface fsprobe -0.001388524 -0.005767789
 /solve/report-definitions/add/fsprobereport surface-vertexavg surface-name "fsprobe"
 /solve/report-definitions/edit/fsprobereport field density
