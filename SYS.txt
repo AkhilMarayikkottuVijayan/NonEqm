@@ -50,7 +50,7 @@ q
 /solve/report-definitions/edit/pres field pressure
 q
 ; CREATE REPORT FILE
-/solve/report-files/add/stagpointrep print? y file-name "stagout" report-def "density" "temp" "pres"()
+/solve/report-files/add/stagrep print? y file-name "stagout" report-def "density" "temp" "pres"()
 q
 ; CREATION OF SECOND PROBE
 /surface/point-surface fsprobe -0.001388524 -0.005767789
