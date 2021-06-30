@@ -1,6 +1,6 @@
 #include "udf.h"
 
-DEFINE_UDS_FLUX(massflux_plus_diffusiveflux,f,t,i)
+DEFINE_UDS_FLUX(momentumflux_plus_diffusiveflux,f,t,i)
 {
     cell_t c0, c1 = -1;
     Thread *t0, *t1 = NULL;
