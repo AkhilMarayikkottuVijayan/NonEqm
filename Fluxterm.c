@@ -18,7 +18,7 @@ DEFINE_UDS_FLUX(massflux_plus_diffusiveflux,f,t,i)
       else
         dens = C_R(c0,t0); 
 
-      NV_DS(psi_vec,  =, F_U(f,t), F_V(f,t), F_W(f,t), *, dens);
+      NV_DS(psi_vec,  =, F_U(f,t), F_V(f,t), F_W(f,t), *, dens,+,C_YI_G(c0,t0,i),*,dens,*,C_DIFF_EFF(c0,t0,i),*,-1);
 
       flux = NV_DOT(psi_vec, A); /* flux through Face */
     }
