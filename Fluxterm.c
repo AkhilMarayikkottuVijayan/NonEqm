@@ -14,11 +14,11 @@ DEFINE_UDS_FLUX(momentumflux_plus_diffusiveflux,f,t,i)
       real dens;
 
       if (NNULLP(THREAD_STORAGE(t,SV_DENSITY)))
-        dens = F_R(f,t);   
+        density = F_R(f,t);   
       else
-        dens = C_R(c0,t0); 
+        density = C_R(c0,t0); 
 
-      NV_DS(psi_vec,  =, F_U(f,t), F_V(f,t), F_W(f,t), *, dens,+,C_YI_G(c0,t0,i),*,dens,*,C_DIFF_EFF(c0,t0,i),*,-1);
+      NV_DS(psi_vec,  =, F_U(f,t), F_V(f,t), F_W(f,t), *, density,+,C_YI_G(c0,t0,i),*,density,*,C_DIFF_EFF(c0,t0,i),*,-1);
 
       flux = NV_DOT(psi_vec, A); /* flux through Face */
     }
