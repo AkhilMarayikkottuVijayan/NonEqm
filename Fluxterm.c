@@ -9,18 +9,14 @@ DEFINE_UDS_FLUX(massflux_plus_diffusiveflux,f,t,i)
     t0 = F_C0_THREAD(f,t);
     F_AREA(A, f, t);
     
-  /* If face lies at domain boundary, use face values; */
-  /* If face lies IN the domain, use average of adjacent cells. */
-
  if (BOUNDARY_FACE_THREAD_P(t)) /*Most face values will be available*/
     {
       real dens;
 
-      /* Depending on its BC, density may not be set on face thread*/
       if (NNULLP(THREAD_STORAGE(t,SV_DENSITY)))
-        dens = F_R(f,t);   /* Set dens to face value if available */
+        dens = F_R(f,t);   
       else
-        dens = C_R(c0,t0); /* else, set dens to cell value */
+        dens = C_R(c0,t0); 
 
       NV_DS(psi_vec,  =, F_U(f,t), F_V(f,t), F_W(f,t), *, dens);
 
