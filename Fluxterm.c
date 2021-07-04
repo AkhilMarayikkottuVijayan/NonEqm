@@ -34,7 +34,7 @@ DEFINE_UDS_FLUX(momentumflux_plus_diffusiveflux,f,t,i)
     }
 
   /* ANSYS FLUENT will multiply the returned value by phi_f (the scalar's
-     value at the face) to get the "complete'' advective term.  */
+     value at the face) to get the "complete'' advective+convective terms.  */
 
   return flux;
 }
