@@ -18,7 +18,7 @@ DEFINE_UDS_FLUX(momentumflux_plus_diffusiveflux,f,t,i)
       else
         density = C_R(c0,t0); 
 
-      NV_DS(psi_vec,  =, F_U(f,t), F_V(f,t), F_W(f,t), *, density,*,C_YI(c0,t0,i),+,C_YI_G(c0,t0,i),*,density,*,C_DIFF_EFF(c0,t0,i),*,-1);
+      NV_DS(psi_vec,  =, F_U(f,t), F_V(f,t), F_W(f,t), *, density,*,C_YI(c0,t0,i),+,C_YI_G(c0,t0,i),*,density,*,C_DIFF_L(c0,t0,i,j),*,-1);
 
       flux = NV_DOT(psi_vec, A); /* flux through Face */
     }
@@ -27,8 +27,8 @@ DEFINE_UDS_FLUX(momentumflux_plus_diffusiveflux,f,t,i)
       c1 = F_C1(f,t);       /* Get cell on other side of face */
       t1 = F_C1_THREAD(f,t); 
 
-      NV_DS(psi_vec,  =, C_U(c0,t0),C_V(c0,t0),C_W(c0,t0),*,C_R(c0,t0),*,C_YI(c0,t0,i),+,C_YI_G(c0,t0,i),*,C_R(c0,t0),*,C_DIFF_EFF(c0,t0,i),*,-1);
-      NV_DS(psi_vec, +=, C_U(c1,t1),C_V(c1,t1),C_W(c1,t1),*,C_R(c1,t1),*,C_YI(c1,t1,i),+,C_YI_G(c1,t1,i),*,C_R(c1,t1),*,C_DIFF_EFF(c1,t1,i),*,-1);
+      NV_DS(psi_vec,  =, C_U(c0,t0),C_V(c0,t0),C_W(c0,t0),*,C_R(c0,t0),*,C_YI(c0,t0,i),+,C_YI_G(c0,t0,i),*,C_R(c0,t0),*,C_DIFF_L(c0,t0,i,j),*,-1);
+      NV_DS(psi_vec, +=, C_U(c1,t1),C_V(c1,t1),C_W(c1,t1),*,C_R(c1,t1),*,C_YI(c1,t1,i),+,C_YI_G(c1,t1,i),*,C_R(c1,t1),*,C_DIFF_L(c1,t1,i,j),*,-1);
 
       flux = NV_DOT(psi_vec, A)/2.0; /* Average flux through face */
     }
