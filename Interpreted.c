@@ -143,7 +143,7 @@ evt     = -1*C_UDMI(c,t,1);
 return evt;
 }
 
-
+/*
 /* Reaction source terms into the energy equation
  * and the UDS equation for non-equilibrium */
 /*DEFINE_SOURCE(n2_dis_src1,c,t,dS,eqn)
